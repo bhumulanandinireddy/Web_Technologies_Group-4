@@ -6,6 +6,7 @@ import Taxonomy from './components/Taxonomy';
 import Challenges from './components/Challenges';
 import Members from './components/Members';
 import References from './components/References';
+import WebSocketClient from './components/WebSocketClient'; 
 import './App.css';
 
 function App() {
@@ -67,6 +68,9 @@ function App() {
           <References />
         </section>
       </div>
+      
+      {/* Include the WebSocketClient component below the main content */}
+      <WebSocketClient />
     </div>
   );
 }
