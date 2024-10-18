@@ -1,119 +1,135 @@
-/* General Styles */
-.about-container {
-    margin-top: 20px;
-    padding: 20px;
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #e0f7fa;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    /* Ensure padding is included in width */
-    overflow-x: hidden;
-    /* Prevent horizontal scrolling */
+/* General styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
-.about-header {
-    text-align: center;
-    font-size: 2.2em;
-    margin-bottom: 15px;
-    color: #2c3e50;
+.about-container{
+    margin: 20px auto;
+        padding: 20px;
+        font-family: 'Arial', sans-serif;
+        background-color: #e0f7fa;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
 }
 
-.about-description {
-    font-size: 1.1em;
-    margin-bottom: 15px;
-    color: #333;
-    line-height: 1.6;
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
-.subheader {
-    font-size: 1.6em;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    color: #555;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* Header Styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #282c34;
+  color: white;
 }
 
-.project-details {
-    font-size: 1.1em;
-    color: #444;
-    margin-bottom: 20px;
+.website-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: white; /* Change text color to white */
+  text-align: left; /* Aligns the title to the left */
 }
 
-.link-list {
-    list-style: none;
-    padding: 0;
+/* Hamburger Icon */
+.hamburger {
+  display: none; /* Hidden by default for larger screens */
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.link-list li {
-    margin: 8px 0;
+.hamburger .line {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  transition: 0.3s ease;
 }
 
-.link-list a {
-    color: #3498db;
-    text-decoration: none;
-    font-weight: bold;
+/* Menu Bar Styling */
+.menu-bar {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #282c34;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
 }
 
-.link-list a:hover {
-    text-decoration: underline;
-    color: #2980b9;
+.menu-bar.open {
+  transform: translateY(0);
 }
 
-/* Mobile Specific */
+.menu-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-list li {
+  margin: 0 15px;
+}
+
+.menu-list li button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  font-size: 16px;
+}
+
+.menu-list li button:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+/* Mobile Menu Styling */
 @media (max-width: 768px) {
-    .about-container {
-        padding: 15px;
-    }
+  .hamburger {
+    display: flex;
+  }
 
-    .about-header {
-        font-size: 1.8em;
-        margin-bottom: 10px;
-    }
+  .menu-bar {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background-color: #282c34;
+    width: 100%;
+    padding: 10px 0;
+  }
 
-    .about-description {
-        font-size: 1em;
-        margin-bottom: 10px;
-    }
+  .menu-bar.open {
+    display: block;
+  }
 
-    .subheader {
-        font-size: 1.4em;
-        margin-bottom: 5px;
-        justify-content: flex-start;
-    }
+  .menu-list {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .project-details {
-        font-size: 1em;
-    }
-
-    .link-list a {
-        font-size: 0.95em;
-    }
+  .menu-list li {
+    margin: 10px 0;
+  }
 }
 
-@media (max-width: 480px) {
-    .about-header {
-        font-size: 1.5em;
-        margin-bottom: 5px;
-    }
-
-    .about-description {
-        font-size: 0.9em;
-    }
-
-    .subheader {
-        font-size: 1.2em;
-        justify-content: flex-start;
-    }
-
-    .project-details {
-        font-size: 0.9em;
-    }
-
-    .link-list a {
-        font-size: 0.9em;
-    }
+/* Content Styling */
+.content {
+  padding-top: 60px; /* Space for the fixed header */
+  padding: 20px;
+  flex-grow: 1;
+  background-color: #f0f0f0;
 }

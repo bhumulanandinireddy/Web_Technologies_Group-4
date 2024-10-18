@@ -137,17 +137,16 @@ const References = () => {
   return (
     <div className="references">
       <h1>References</h1>
-     <p className="description">
-  This <strong>References</strong> section provides a curated list of literature that supports our survey on DNS-over-HTTPS (DoH). These works span multiple areas including:
-  <ul>
-    <li><strong>DNS-over-HTTPS Studies</strong>: Research on DoH’s architecture and performance.</li>
-    <li><strong>Security Attacks</strong>: Analysis of threats and vulnerabilities in DoH.</li>
-    <li><strong>Performance & Privacy</strong>: Evaluations of DoH’s impact on speed and privacy.</li>
-    <li><strong>Machine Learning & Detection</strong>: AI-driven methods for detecting malicious DoH traffic.</li>
-  </ul>
-  These references provide a well-rounded foundation for understanding DoH from various perspectives, helping readers explore key challenges and innovations in the field.
-</p>
-
+      <p className="description">
+        This <strong>References</strong> section provides a curated list of literature that supports our survey on DNS-over-HTTPS (DoH). These works span multiple areas including:
+        <ul>
+          <li><strong>DNS-over-HTTPS Studies</strong>: Research on DoH’s architecture and performance.</li>
+          <li><strong>Security Attacks</strong>: Analysis of threats and vulnerabilities in DoH.</li>
+          <li><strong>Performance & Privacy</strong>: Evaluations of DoH’s impact on speed and privacy.</li>
+          <li><strong>Machine Learning & Detection</strong>: AI-driven methods for detecting malicious DoH traffic.</li>
+        </ul>
+        These references provide a well-rounded foundation for understanding DoH from various perspectives, helping readers explore key challenges and innovations in the field.
+      </p>
 
       {Object.keys(categories).map((category) => (
         <div key={category} className="category">

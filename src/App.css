@@ -1,98 +1,120 @@
-/* General styles */
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
-}
-
-/* Hamburger menu icon */
-.hamburger {
-  position: fixed;
-  /* This ensures it stays in one place */
-  top: 20px;
-  right: 20px;
+/* General layout for the app */
+.App {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 1001;
-  /* Ensure it is always on top */
+  height: 100vh;
 }
 
-.hamburger .line {
-  width: 30px;
-  height: 4px;
-  background-color: black;
-  margin: 5px 0;
-  transition: 0.4s;
-}
-
-/* Menu styles */
-.menu-bar {
-  display: none;
-  background-color: #007bff;
-  position: fixed;
-  /* Fix it to stay in one place */
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  color: white;
+  width: 100%;
+  position: fixed; /* Keep navbar fixed at the top */
   top: 0;
   left: 0;
+  z-index: 1000; /* Ensure it's above other content */
+  box-shadow: 0 4px 2px -2px gray; /* Optional: adds shadow for better visibility */
+}
+
+/* Adjust the content to account for fixed navbar */
+.content {
+  padding-top: 60px; /* Add space at the top for the fixed navbar */
+}
+
+/* Navbar container */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  padding: 10px 0;
-  text-align: center;
-  z-index: 1000;
-  transition: all 0.3s ease-in-out;
 }
 
-.menu-bar.open {
-  display: block;
-  /* Display when open */
+.navbar-brand {
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.menu-bar ul {
+.hamburger-icon {
+  display: none;
+  /* Hide by default */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hamburger-icon .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 3px 0;
+}
+
+/* Navbar links */
+.navbar-nav {
+  display: flex;
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  justify-content: center;
 }
 
-.menu-bar ul li {
-  padding: 10px 20px;
+.navbar-nav li {
+  margin-left: 20px;
 }
 
-.menu-bar ul li button {
-  background: none;
-  border: none;
+.navbar-nav a {
+  text-decoration: none;
   color: white;
-  font-size: 1.2em;
+  font-size: 18px;
+  padding: 10px 20px;
   cursor: pointer;
-  text-transform: uppercase;
 }
 
-.menu-bar ul li button:hover {
-  background-color: white;
-  color: #007bff;
+.navbar-nav a:hover {
+  background-color: #555;
   border-radius: 5px;
 }
 
-/* Mobile specific styles */
+/* Mobile responsive */
 @media (max-width: 768px) {
-  .menu-bar ul {
-    flex-direction: column;
-  }
 
-  .hamburger {
+  /* Display hamburger icon on small screens */
+  .hamburger-icon {
     display: flex;
-    /* Ensure it's visible on smaller screens */
   }
-}
 
-@media (max-width: 430px) {
-  .content {
-    padding: 0 10px;
+  /* Hide navbar links by default */
+  .navbar-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #333;
+    z-index: 999;
   }
-}
 
-/* Add smooth closing of menu on selection */
-.menu-bar ul li button:focus {
-  outline: none;
+  /* Show navbar when menu is open */
+  .navbar-nav.open {
+    display: flex;
+  }
+
+  /* Style individual navbar items in mobile view */
+  .navbar-nav li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .navbar-nav a {
+    padding: 15px 0;
+  }
 }
