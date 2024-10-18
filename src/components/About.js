@@ -7,15 +7,10 @@ const About = () => {
     <div className="about-container">
       <h1 className="about-header">About the Project</h1>
       <p className="about-description">
-        This survey paper focuses on DNS over HTTPS (DoH), exploring its impact on
-        privacy, security, and overall performance. The project aims to assess the
-        current state of DoH, its challenges, and potential use cases in both consumer
-        and enterprise environments.
+        This survey paper focuses on <strong>DNS over HTTPS (DoH)</strong>, a modern protocol that enhances online privacy and security by encrypting DNS queries. The project aims to provide an in-depth analysis of DoH's impact on internet browsing, comparing it with traditional DNS methods, and exploring its role in reducing latency and improving security.
       </p>
       <p className="about-description">
-        Our group, Group 4, aims to offer a comprehensive overview of DoH and provide
-        solutions to current limitations. We delve deep into how DoH improves privacy and
-        enhances security while reducing latency in DNS query resolution.
+        Through this research, our team evaluates current challenges such as implementation difficulties, compatibility issues, and privacy concerns, while also proposing solutions to enhance DoH's adoption in both consumer and enterprise networks.
       </p>
 
       <h2 className="subheader">
@@ -25,9 +20,7 @@ const About = () => {
         Topic: <b>A Survey on DNS over HTTPS: Status, Challenges, Use Cases, and Open Issues</b>
       </p>
       <p className="about-description">
-        Our project explores the current state of DNS over HTTPS (DoH) and examines
-        its effectiveness in enhancing user privacy, improving security, and reducing
-        latency in DNS query resolution.
+        This project highlights how DoH improves privacy, mitigates security risks, and optimizes DNS query performance, making it a significant technology for modern internet users.
       </p>
 
       <h2 className="subheader">

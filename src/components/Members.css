@@ -1,41 +1,43 @@
+/* General Styles */
 .members {
     text-align: center;
-    padding: 20px;
-    background-color: #f9f9f9;
+    padding: 40px;
+    background-color: #e0f7fa;
     font-family: 'Arial', sans-serif;
 }
 
 .members h1 {
     font-size: 36px;
-    margin-bottom: 10px;
-    color: #333;
+    margin-bottom: 20px;
+    color: #005b96;
 }
 
 .members p {
     font-size: 18px;
-    color: #666;
-    margin-bottom: 20px;
+    color: #333;
+    margin-bottom: 30px;
 }
 
 .members-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
     justify-content: center;
 }
 
 .member-card {
-    background-color: white;
-    border: 1px solid #ddd;
+    background-color: #b3e5fc;
+    border: 1px solid #81d4fa;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
     text-align: center;
 }
 
 .member-card:hover {
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
 }
 
 .member-img {
@@ -44,20 +46,94 @@
     object-fit: cover;
     border-radius: 50%;
     margin-bottom: 15px;
-    border: 3px solid #ddd;
+    border: 3px solid #0288d1;
 }
 
 .member-card h2 {
     font-size: 22px;
     margin-bottom: 10px;
-    color: #333;
+    color: #01579b;
 }
 
 .member-card p {
     font-size: 16px;
-    color: #555;
+    color: #004d40;
+    margin: 5px 0;
 }
 
 .member-card b {
     font-weight: bold;
+    color: #004d40;
+}
+
+.github-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #333;
+    margin-top: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.github-link:hover {
+    color: #005b96;
+}
+
+.github-link svg {
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .members-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns for medium screens */
+    }
+
+    .member-img {
+        width: 120px;
+        /* Smaller images on medium screens */
+        height: 120px;
+    }
+
+    .member-card h2 {
+        font-size: 18px;
+        /* Smaller names on medium screens */
+    }
+
+    .member-card p {
+        font-size: 14px;
+        /* Smaller text on medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .members-grid {
+        grid-template-columns: 1fr;
+        /* Stack into a single column on small screens */
+    }
+
+    .member-img {
+        width: 100px;
+        /* Even smaller images on mobile */
+        height: 100px;
+    }
+
+    .member-card h2 {
+        font-size: 16px;
+        /* Further reduced size for mobile */
+    }
+
+    .member-card p {
+        font-size: 12px;
+        /* Smaller text on mobile */
+    }
+
+    .github-link {
+        font-size: 14px;
+        /* Smaller font for mobile */
+    }
 }

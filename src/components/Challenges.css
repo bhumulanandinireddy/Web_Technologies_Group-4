@@ -1,91 +1,80 @@
-/* Container styling */
-.challenges-container {
-    max-width: 1200px;
-    margin: 0 auto;
+/* Styling for sections */
+.section-title {
+    background-color: #e0f7fa;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    font-weight: 600;
+}
+
+.challenges-and-trends {
+    margin-top: 20px;
+    background-color: #e0f7fa;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
     padding: 20px;
-    font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid #e0e0e0;
+}
+
+.card-title {
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.icon {
+    margin-right: 12px;
+    color: #007bff;
+}
+
+.card-content {
+    margin-top: 15px;
+    font-size: 1em;
+    color: #666;
     line-height: 1.6;
 }
 
-/* Title styling */
-.challenges-title {
-    text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-/* Description styling */
-.challenges-description {
-    text-align: center;
-    font-size: 1.2em;
-    margin-bottom: 30px;
-    color: #333;
-}
-
-/* Section header styling */
-.section-title {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-    color: #007BFF;
-    text-align: center;
-}
-
-/* List styling */
-.challenges-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.challenge-item {
-    font-size: 1.1em;
-    margin-bottom: 15px;
-    padding-left: 20px;
-    position: relative;
-}
-
-.challenge-item::before {
-    content: '✔';
-    /* Adds a checkmark bullet */
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: #007BFF;
-    font-size: 1.5em;
+.toggle-icon {
+    margin-left: auto;
+    font-size: 1.6em;
+    color: #007bff;
 }
 
 /* Mobile-responsive styling */
 @media (max-width: 768px) {
-    .challenges-title {
-        font-size: 2em;
+    .icon {
+        font-size: 1.6em;
     }
 
-    .challenges-description {
+    .card-title {
         font-size: 1.1em;
     }
 
-    .section-title {
-        font-size: 1.5em;
-    }
-
-    .challenge-item {
-        font-size: 1em;
+    .card {
+        padding: 15px;
     }
 }
 
 @media (max-width: 480px) {
-    .challenges-title {
-        font-size: 1.5em;
+    .icon {
+        font-size: 1.3em;
     }
 
-    .challenges-description {
+    .card-title {
         font-size: 1em;
     }
 
-    .section-title {
-        font-size: 1.2em;
-    }
-
-    .challenge-item {
-        font-size: 0.9em;
+    .card {
+        padding: 10px;
     }
 }

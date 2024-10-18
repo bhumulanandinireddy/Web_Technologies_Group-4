@@ -1,66 +1,197 @@
-/* General styling for the references page */
+/* General container */
 .references {
-    background-color: #f4f7f9;
-    padding: 40px 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    padding: 20px;
     font-family: 'Arial', sans-serif;
+    background-color: #e0f7fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
-.references h1 {
-    font-size: 36px;
-    color: #333;
+/* Header styling */
+h1 {
+    font-size: 2.2em;
+    text-align: center;
     margin-bottom: 20px;
-    text-align: center;
+    color: #333;
+    font-weight: 600;
 }
 
-.references .description {
-    font-size: 18px;
-    color: #555;
+h2.category-header {
+    font-size: 1.5em;
+    margin-top: 30px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s, transform 0.3s;
+    padding: 5px;
+}
+
+h2.category-header:hover {
+    color: #007bff;
+    transform: scale(1.05);
+}
+
+/* Description styling */
+.description {
     text-align: center;
+    font-size: 1em;
     margin-bottom: 30px;
+    color: #555;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
+.description ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.description ul li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.description ul li strong {
+    color: #007bff;
+}
+
+/* Link list and hover styling */
 .reference-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.reference-list li {
-    margin-bottom: 15px;
-    padding: 10px 0;
-    font-size: 18px;
+.link-item {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
 }
 
-.reference-list a {
-    color: #1a73e8;
+.link-item a {
     text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
+    font-size: 1.1em;
+    color: #007bff;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 8px 12px;
+    transition: all 0.3s ease-in-out;
+    max-width: 80%;
+    word-wrap: break-word;
+    text-align: center;
+    background-color: #fff;
+    display: inline-block;
 }
 
-.reference-list a:hover {
-    color: #0045cc;
-    text-decoration: underline;
+.link-item a:hover {
+    background-color: #f0f8ff;
+    color: #004085;
+    border-color: #007bff;
+    box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
+    transform: scale(1.02);
 }
 
+/* Accordion dropdown behavior */
+.category {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid #e1e1e1;
+}
+
+.category ul {
+    margin-top: 10px;
+}
+
+.category-header::after {
+    content: ' ▼';
+    font-size: 1.2em;
+    color: #007bff;
+    float: right;
+    transition: transform 0.3s ease;
+}
+
+.category-header:hover::after {
+    transform: rotate(180deg);
+}
+
+.category-header+.reference-list {
+    display: block;
+    padding-top: 10px;
+}
+
+.category-header+.reference-list a {
+    text-decoration: none;
+    font-size: 1.1em;
+    color: #007bff;
+    border-radius: 5px;
+    padding: 8px 12px;
+    display: inline-block;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.category-header+.reference-list a:hover {
+    color: #004085;
+    background-color: #f0f8ff;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.4);
+}
+
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
-    .references {
-        padding: 20px;
+    h1 {
+        font-size: 1.8em;
     }
 
-    .references h1 {
-        font-size: 28px;
+    h2.category-header {
+        font-size: 1.3em;
     }
 
-    .references .description {
-        font-size: 16px;
+    .description {
+        font-size: 0.9em;
     }
 
-    .reference-list li {
-        font-size: 16px;
+    .link-item a {
+        font-size: 1em;
+        padding: 6px 10px;
+    }
+
+    .category-header::after {
+        font-size: 1.1em;
+    }
+
+    .reference-list {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6em;
+    }
+
+    h2.category-header {
+        font-size: 1.2em;
+    }
+
+    .description {
+        font-size: 0.8em;
+    }
+
+    .link-item a {
+        font-size: 0.9em;
+        padding: 5px 8px;
+        max-width: 100%;
+    }
+
+    .category-header::after {
+        font-size: 1em;
+    }
+
+    .category-header+.reference-list {
+        padding-top: 5px;
     }
 }

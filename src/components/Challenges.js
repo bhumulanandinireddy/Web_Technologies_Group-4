@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import './Challenges.css'; // Ensure you have a separate CSS file for challenges
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCogs, faShieldAlt, faGlobe, faGavel, faLock, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import './Challenges.css';
 
 const ChallengesAndTrends = () => {
   const [expandedSection, setExpandedSection] = useState(null);
@@ -19,184 +21,107 @@ const ChallengesAndTrends = () => {
 
       <div className="card">
         <h2 className="card-title" onClick={() => toggleSection('implementation')}>
+          <FontAwesomeIcon icon={faCogs} className="icon" />
           <span className="card-header">Implementation Challenges</span>
           <span className="toggle-icon">{expandedSection === 'implementation' ? '−' : '+'}</span>
         </h2>
         {expandedSection === 'implementation' && (
           <div className="card-content">
-            <p>
-              Implementing DNS over HTTPS (DoH) requires extensive modifications to the existing DNS infrastructure.
-              These include deploying DoH-compatible resolvers, updating client configurations, and ensuring the
-              performance of DNS traffic is not adversely affected by encryption overhead (Li et al., 2021).
-            </p>
-            <p>
-              Additionally, proper configuration of DNS server endpoints and handling failures in encrypted DNS queries
-              pose challenges that need attention for a successful deployment.
-            </p>
+            <ul>
+              <li><strong>Backward Compatibility:</strong> Some legacy systems and devices may not support DoH, causing disruptions.</li>
+              <li><strong>Configuration Complexity:</strong> DNS over HTTPS can be more difficult to configure than traditional DNS, especially in complex network environments.</li>
+              <li><strong>Integration with Existing Systems:</strong> Incorporating DoH into current infrastructures, such as DNS servers and firewalls, requires considerable adjustments.</li>
+            </ul>
           </div>
         )}
       </div>
 
       <div className="card">
         <h2 className="card-title" onClick={() => toggleSection('security')}>
+          <FontAwesomeIcon icon={faShieldAlt} className="icon" />
           <span className="card-header">Security Vulnerabilities</span>
           <span className="toggle-icon">{expandedSection === 'security' ? '−' : '+'}</span>
         </h2>
         {expandedSection === 'security' && (
           <div className="card-content">
-            <p>
-              While DoH provides encryption, it also introduces potential security risks such as man-in-the-middle
-              attacks if the encryption is not properly implemented. An attacker who can intercept the DoH traffic
-              may be able to decrypt or tamper with DNS queries (Jiang et al., 2021).
-            </p>
-            <p>
-              Additionally, security concerns around DNS resolvers' trustworthiness and their potential for misuse
-              (such as surveillance) require further mitigation strategies.
-            </p>
+            <ul>
+              <li><strong>Misconfigurations:</strong> Incorrect settings or vulnerabilities in DoH resolvers could lead to data leaks or MITM attacks.</li>
+              <li><strong>DoH Hijacking:</strong> Attackers could attempt to hijack a DoH request to manipulate DNS responses.</li>
+              <li><strong>Privacy Concerns:</strong> While DoH encrypts traffic, it raises concerns about large entities controlling DNS traffic data.</li>
+            </ul>
           </div>
         )}
       </div>
 
       <div className="card">
-        <h2 className="card-title" onClick={() => toggleSection('interoperability')}>
-          <span className="card-header">Interoperability Issues</span>
-          <span className="toggle-icon">{expandedSection === 'interoperability' ? '−' : '+'}</span>
+        <h2 className="card-title" onClick={() => toggleSection('performance')}>
+          <FontAwesomeIcon icon={faArrowUp} className="icon" />
+          <span className="card-header">Performance Issues</span>
+          <span className="toggle-icon">{expandedSection === 'performance' ? '−' : '+'}</span>
         </h2>
-        {expandedSection === 'interoperability' && (
+        {expandedSection === 'performance' && (
           <div className="card-content">
-            <p>
-              Interoperability between DoH and other protocols such as DNS over TLS (DoT) and DNSSEC is still under
-              research. Combining DoH with these protocols could help in enhancing DNS security, but compatibility
-              issues need to be solved to ensure smooth operation (Ali et al., 2021).
-            </p>
-            <p>
-              There are also concerns about the coordination of DoH with legacy systems and how older applications
-              handle encrypted DNS traffic.
-            </p>
+            <ul>
+              <li><strong>Increased Latency:</strong> The encryption overhead could introduce slight delays compared to traditional DNS.</li>
+              <li><strong>Content Delivery Networks (CDNs):</strong> Some content may not be delivered as quickly due to DoH’s encryption process, which bypasses local DNS caches.</li>
+              <li><strong>Server Load:</strong> DoH may increase the load on servers as the system must handle encrypted requests, potentially slowing down response times.</li>
+            </ul>
+          </div>
+        )}
+      </div>
+
+      {/* Trends Section */}
+      <div className="section-header">
+        <h2 className="section-title">Trends in DNS over HTTPS</h2>
+      </div>
+
+      <div className="card">
+        <h2 className="card-title" onClick={() => toggleSection('adoption')}>
+          <FontAwesomeIcon icon={faGlobe} className="icon" />
+          <span className="card-header">Global Adoption</span>
+          <span className="toggle-icon">{expandedSection === 'adoption' ? '−' : '+'}</span>
+        </h2>
+        {expandedSection === 'adoption' && (
+          <div className="card-content">
+            <ul>
+              <li><strong>Growth in Adoption:</strong> Major organizations and browsers like Google, Mozilla, and Cloudflare have increasingly integrated DoH, enhancing its global acceptance.</li>
+              <li><strong>User Privacy:</strong> The adoption trend is largely driven by the need for stronger privacy protections, which is becoming a key selling point.</li>
+              <li><strong>Network Neutrality:</strong> Some ISPs are wary of DoH as it could bypass their local filtering systems, raising legal concerns.</li>
+            </ul>
           </div>
         )}
       </div>
 
       <div className="card">
         <h2 className="card-title" onClick={() => toggleSection('regulation')}>
-          <span className="card-header">Regulatory and Governance Challenges</span>
+          <FontAwesomeIcon icon={faGavel} className="icon" />
+          <span className="card-header">Regulatory Trends</span>
           <span className="toggle-icon">{expandedSection === 'regulation' ? '−' : '+'}</span>
         </h2>
         {expandedSection === 'regulation' && (
           <div className="card-content">
-            <p>
-              Regulatory frameworks for DNS over HTTPS are still evolving. Governments and international bodies
-              need to establish rules to prevent misuse, such as surveillance by large DoH providers like Google or
-              Cloudflare (Klein et al., 2022).
-            </p>
-            <p>
-              Establishing proper governance mechanisms is crucial to ensuring that DoH does not centralize DNS
-              control to a few organizations, potentially undermining the decentralized nature of the internet.
-            </p>
+            <ul>
+              <li><strong>Data Localization:</strong> Different regions may require DoH traffic to adhere to local laws regarding data storage and access.</li>
+              <li><strong>Surveillance Resistance:</strong> Countries concerned with surveillance may impose regulations to control or prevent DoH adoption in favor of more traditional DNS monitoring.</li>
+              <li><strong>Government Backlash:</strong> Some governments may take measures to block or restrict DoH as it undermines their control over network traffic.</li>
+            </ul>
           </div>
         )}
       </div>
 
       <div className="card">
         <h2 className="card-title" onClick={() => toggleSection('privacy')}>
-          <span className="card-header">Privacy Concerns</span>
+          <FontAwesomeIcon icon={faLock} className="icon" />
+          <span className="card-header">Privacy Enhancements</span>
           <span className="toggle-icon">{expandedSection === 'privacy' ? '−' : '+'}</span>
         </h2>
         {expandedSection === 'privacy' && (
           <div className="card-content">
-            <p>
-              While DoH improves encryption of DNS traffic, it may lead to concerns about the collection of
-              metadata by centralized DoH providers. This concentration of data could allow these providers to
-              monitor browsing activity across a wide range of users, raising privacy concerns (Barrett, 2020).
-            </p>
-            <p>
-              Privacy preservation techniques and decentralization strategies are critical to resolving this issue
-              while maintaining the benefits of encrypted DNS traffic.
-            </p>
-          </div>
-        )}
-      </div>
-
-      {/* Trends and Future Directions Section */}
-      <div className="section-header">
-        <h2 className="section-title">Trends and Future Directions in DNS over HTTPS</h2>
-      </div>
-
-      <div className="card">
-        <h2 className="card-title" onClick={() => toggleSection('performance')}>
-          <span className="card-header">Improved Performance and Optimization</span>
-          <span className="toggle-icon">{expandedSection === 'performance' ? '−' : '+'}</span>
-        </h2>
-        {expandedSection === 'performance' && (
-          <div className="card-content">
-            <p>
-              As DNS over HTTPS becomes more widely adopted, advancements in performance optimization are expected.
-              This includes techniques like connection reuse, server-side caching, and improvements in DNS query
-              response times while maintaining security and privacy (Huang et al., 2022).
-            </p>
-            <p>
-              New research into minimizing the overhead of encryption and reducing latency could contribute to broader
-              adoption of DoH across various internet services.
-            </p>
-          </div>
-        )}
-      </div>
-
-      <div className="card">
-        <h2 className="card-title" onClick={() => toggleSection('adoption')}>
-          <span className="card-header">Wider Adoption and Industry Support</span>
-          <span className="toggle-icon">{expandedSection === 'adoption' ? '−' : '+'}</span>
-        </h2>
-        {expandedSection === 'adoption' && (
-          <div className="card-content">
-            <p>
-              Major internet service providers (ISPs) and browser vendors, including Mozilla, Google, and Cloudflare,
-              are expected to drive the wider adoption of DoH. This will help build an ecosystem that supports secure
-              and privacy-preserving DNS queries for end users (Nguyen et al., 2022).
-            </p>
-            <p>
-              Industry standards, along with clearer regulatory policies, are key to encouraging mass adoption.
-            </p>
-          </div>
-        )}
-      </div>
-
-      <div className="card">
-        <h2 className="card-title" onClick={() => toggleSection('security-enhancements')}>
-          <span className="card-header">Enhanced Security Protocols</span>
-          <span className="toggle-icon">{expandedSection === 'security-enhancements' ? '−' : '+'}</span>
-        </h2>
-        {expandedSection === 'security-enhancements' && (
-          <div className="card-content">
-            <p>
-              The future of DNS over HTTPS includes enhancements in security protocols, such as tighter integration
-              with DNSSEC to ensure integrity and authentication of DNS data. Additionally, efforts will be made to
-              mitigate any remaining vulnerabilities in the DoH ecosystem (Xie et al., 2021).
-            </p>
-            <p>
-              Advanced cryptographic techniques and authentication strategies will likely be developed to strengthen
-              the security of encrypted DNS queries.
-            </p>
-          </div>
-        )}
-      </div>
-
-      <div className="card">
-        <h2 className="card-title" onClick={() => toggleSection('decentralization')}>
-          <span className="card-header">Decentralization and Privacy Enhancements</span>
-          <span className="toggle-icon">{expandedSection === 'decentralization' ? '−' : '+'}</span>
-        </h2>
-        {expandedSection === 'decentralization' && (
-          <div className="card-content">
-            <p>
-              The push for decentralization in the DoH landscape is expected to grow, as privacy concerns about
-              centralized providers persist. Future directions include the development of decentralized DoH resolvers
-              and protocols that minimize the data collection by a single entity (Santos et al., 2023).
-            </p>
-            <p>
-              Privacy-preserving techniques, such as query anonymization and the use of multiple resolver endpoints,
-              will further contribute to the decentralized vision of DoH.
-            </p>
+            <ul>
+              <li><strong>Encryption at Scale:</strong> DoH enhances user privacy by hiding DNS queries from potential eavesdroppers, making it harder for third parties to track users.</li>
+              <li><strong>Reduced Tracking:</strong> By masking DNS requests, DoH minimizes the tracking capabilities of ISPs, governments, and malicious entities.</li>
+              <li><strong>Private Resolver Services:</strong> New privacy-focused DNS resolvers, like Cloudflare and Google DNS, offer DoH services that improve user privacy while maintaining performance.</li>
+            </ul>
           </div>
         )}
       </div>

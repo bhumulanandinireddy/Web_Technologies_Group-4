@@ -1,209 +1,98 @@
-/* App.css */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* General styles */
 body {
-  font-family: Arial, sans-serif;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
 }
 
-.App {
-  position: relative;
-  min-height: 100vh;
-}
-
-/* Hamburger Menu */
+/* Hamburger menu icon */
 .hamburger {
   position: fixed;
+  /* This ensures it stays in one place */
   top: 20px;
   right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   cursor: pointer;
-  z-index: 100;
+  z-index: 1001;
+  /* Ensure it is always on top */
 }
 
 .hamburger .line {
   width: 30px;
   height: 4px;
-  background-color: #333;
-  margin: 6px 0;
+  background-color: black;
+  margin: 5px 0;
   transition: 0.4s;
 }
 
-.hamburger .line.open:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.hamburger .line.open:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger .line.open:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
-}
-
-/* Menu Bar */
+/* Menu styles */
 .menu-bar {
+  display: none;
+  background-color: #007bff;
   position: fixed;
+  /* Fix it to stay in one place */
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #333;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
-  z-index: 50;
-  transform: translateY(-100%);
-  transition: transform 0.3s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
+  padding: 10px 0;
+  text-align: center;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
 }
 
 .menu-bar.open {
-  transform: translateY(0);
-  flex-direction: column;
-  padding-top: 20px;
-  justify-content: flex-start;
+  display: block;
+  /* Display when open */
 }
 
 .menu-bar ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  flex-direction: column;
   display: flex;
-  width: 100%;
+  justify-content: center;
 }
 
 .menu-bar ul li {
-  padding: 5px 0;
+  padding: 10px 20px;
 }
 
 .menu-bar ul li button {
   background: none;
   border: none;
-  color: #fff;
+  color: white;
+  font-size: 1.2em;
   cursor: pointer;
-  font-size: 16px;
   text-transform: uppercase;
-  font-weight: bold;
-  transition: color 0.3s;
-  padding: 10px 20px;
-  width: 100%;
-  text-align: left;
 }
 
 .menu-bar ul li button:hover {
-  color: #ffa500;
+  background-color: white;
+  color: #007bff;
+  border-radius: 5px;
 }
 
+/* Mobile specific styles */
+@media (max-width: 768px) {
+  .menu-bar ul {
+    flex-direction: column;
+  }
+
+  .hamburger {
+    display: flex;
+    /* Ensure it's visible on smaller screens */
+  }
+}
+
+@media (max-width: 430px) {
+  .content {
+    padding: 0 10px;
+  }
+}
+
+/* Add smooth closing of menu on selection */
 .menu-bar ul li button:focus {
   outline: none;
-}
-
-/* Desktop View (Web Page) */
-@media (min-width: 769px) {
-  .menu-bar {
-    flex-direction: row;
-    justify-content: space-around;
-    height: 60px;
-    transform: translateY(0);
-  }
-
-  .menu-bar ul {
-    flex-direction: row;
-  }
-
-  .menu-bar ul li {
-    padding: 0 15px;
-  }
-
-  .menu-bar ul li button {
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: color 0.3s;
-  }
-
-  .menu-bar ul li button:hover {
-    color: #ffa500;
-  }
-
-  .hamburger {
-    display: none;
-    /* Hide hamburger for desktop view */
-  }
-}
-
-/* Mobile Styling */
-@media (max-width: 768px) {
-  .menu-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    height: 60px;
-    /* Normal height when closed */
-    transform: translateY(-100%);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .menu-bar.open {
-    transform: translateY(0);
-    height: auto;
-    /* Allow the menu height to expand based on its content */
-  }
-
-  .menu-bar ul {
-    flex-direction: column;
-    width: 100%;
-    padding: 0;
-  }
-
-  .menu-bar ul li {
-    margin: 5px 0;
-    /* Reduced space between menu options */
-  }
-
-  .menu-bar ul li button {
-    width: 100%;
-    text-align: left;
-    padding: 10px;
-  }
-
-  .hamburger {
-    top: 20px;
-    right: 20px;
-    display: block;
-    /* Show hamburger in mobile view */
-  }
-}
-
-/* Content Sections */
-.content {
-  padding-top: 80px;
-  /* To avoid overlap with fixed navbar */
-}
-
-section {
-  padding: 60px 20px;
-}
-
-section h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-section p {
-  font-size: 1rem;
-  line-height: 1.6;
 }

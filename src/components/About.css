@@ -1,29 +1,35 @@
 /* General Styles */
 .about-container {
+    margin-top: 20px;
     padding: 20px;
-    max-width: 900px;
-    /* Make the width smaller like the literature review */
-    margin: 0 auto;
-    /* Center the container */
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
+    background-color: #e0f7fa;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
 }
 
 .about-header {
     text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    color: #2c3e50;
 }
 
 .about-description {
-    font-size: 1.2em;
-    margin-bottom: 20px;
+    font-size: 1.1em;
+    margin-bottom: 15px;
     color: #333;
+    line-height: 1.6;
 }
 
 .subheader {
-    font-size: 1.8em;
-    margin-top: 20px;
+    font-size: 1.6em;
+    margin-top: 15px;
     margin-bottom: 10px;
     color: #555;
     display: flex;
@@ -43,46 +49,55 @@
 }
 
 .link-list li {
-    margin: 10px 0;
+    margin: 8px 0;
 }
 
 .link-list a {
-    color: #007BFF;
+    color: #3498db;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .link-list a:hover {
     text-decoration: underline;
+    color: #2980b9;
 }
 
-/* Responsive Styles */
+/* Mobile Specific */
 @media (max-width: 768px) {
     .about-container {
-        padding: 10px;
+        padding: 15px;
     }
 
     .about-header {
-        font-size: 2em;
+        font-size: 1.8em;
+        margin-bottom: 10px;
     }
 
-    .about-description,
+    .about-description {
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
+
+    .subheader {
+        font-size: 1.4em;
+        margin-bottom: 5px;
+        justify-content: flex-start;
+    }
+
     .project-details {
         font-size: 1em;
     }
 
-    .subheader {
-        font-size: 1.5em;
-        justify-content: center;
-    }
-
     .link-list a {
-        font-size: 1em;
+        font-size: 0.95em;
     }
 }
 
 @media (max-width: 480px) {
     .about-header {
         font-size: 1.5em;
+        margin-bottom: 5px;
     }
 
     .about-description {
@@ -90,7 +105,12 @@
     }
 
     .subheader {
-        font-size: 1.3em;
+        font-size: 1.2em;
+        justify-content: flex-start;
+    }
+
+    .project-details {
+        font-size: 0.9em;
     }
 
     .link-list a {

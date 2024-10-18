@@ -1,73 +1,87 @@
-/* General container styling */
+/* LiteratureReview.css */
 .literature-review {
+    margin: 20px auto;
+    font-family: 'Roboto', sans-serif;
+    color: #2c3e50;
     padding: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: #f9f9f9;
+    background-color: #e0f7fa;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Card styling */
-.card {
-    margin-bottom: 20px;
+.literature-review h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #2980b9;
+    font-weight: 600;
+}
+
+.literature-item {
+    margin: 15px 0;
+    border-radius: 8px;
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    transition: transform 0.3s ease;
 }
 
-.card-title {
-    padding: 15px;
-    background-color: #4caf50;
-    color: white;
-    font-size: 1.25rem;
+.literature-item:hover {
+    transform: translateY(-5px);
+}
+
+.literature-header {
+    background-color: #ecf0f1;
+    padding: 20px;
     cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    transition: background-color 0.3s ease;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
-.card-title:hover {
-    background-color: #45a049;
+.literature-header:hover {
+    background-color: #bdc3c7;
 }
 
-.card-header {
-    font-weight: bold;
+.literature-header h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #34495e;
 }
 
-.toggle-icon {
-    font-size: 1.5rem;
+.literature-content {
+    padding: 20px;
+    background-color: #fff;
+    font-size: 1rem;
+    line-height: 1.8;
+    border-top: 1px solid #ddd;
 }
 
-/* Content inside the card */
-.card-content {
-    padding: 15px;
-    color: #555;
+.literature-content p {
+    margin: 0 0 15px;
+    text-align: justify;
 }
 
-.card-content p {
-    margin-bottom: 15px;
+.literature-item+.literature-item {
+    margin-top: 20px;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 600px) {
+.literature-item .literature-header {
+    border-bottom: 2px solid #ddd;
+}
+
+/* For mobile responsiveness */
+@media screen and (max-width: 768px) {
     .literature-review {
-        padding: 15px;
+        width: 100%;
+        padding: 0 10px;
     }
 
-    .card-title {
-        font-size: 1rem;
-    }
-
-    .card-content {
-        font-size: 0.9rem;
-    }
-
-    .toggle-icon {
+    .literature-header h3 {
         font-size: 1.2rem;
+    }
+
+    .literature-content {
+        font-size: 0.95rem;
     }
 }
